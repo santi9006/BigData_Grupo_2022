@@ -24,4 +24,8 @@ use(ps1_trim.Rda)
 m1<-lm(y_total_m_ha~age+c(age*age), ps1_trim)
 effect_plot(model=m1, pred = age, interval=TRUE)
 
+model.fit(ps1_trim$age, ps1_trim$y_total_m_ha)
+preds = model.predict(X_train)
+train_residuals = y_train - preds
+
 
