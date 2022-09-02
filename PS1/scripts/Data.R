@@ -6,7 +6,15 @@
 ## 1. Instalar/Cargar Paquetes
  
 install.packages("pacman")
-require(pacman)
+install.packages("tidyverse")
+install.packages("fabricatr")
+install.packages("stargazer")
+
+require("pacman")
+require("tidyverse")
+require("fabricatr")
+require("stargazer")
+
 p_load(tidyverse,
        rvest,
        here,
