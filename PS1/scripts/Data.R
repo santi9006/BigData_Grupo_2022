@@ -114,7 +114,7 @@ master<-rbind.data.frame(b1, b2, b3, b4, b5, b6, b7, b8, b9, b10)
 ## 3. Creamos la base ps1, que ya esta limpia y solo tiene la informacion que se necesitamos en el Problem Set
 
 ### 3.1 Dejamos solo a los mayores de 18 a??os y que estan trabajando*
-###### Nota La variable P6240 pregunta en que actividad ocupo la mayor parte del tiempo la semana pasada, y =1 significa Trabajando"
+###### Nota La variable P6240 pregunta en que actividad ocupo la mayor parte del tiempo la semana pasada, y =1 significa "Trabajando"
 
 ps1<- subset(master, age>17 & p6240==1)
 ps1$ingtotha <- ps1$ingtot/ (4*ps1$hoursWorkUsual)  ##Creo una variable de ingtotal por hora
