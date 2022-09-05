@@ -3,6 +3,8 @@
 ###############################################################
 
 
+## A continuación se describe el paso a paso para realizar el Web Scraping.
+
 ## 1. Instalar/Cargar Paquetes
  
 install.packages("pacman")
@@ -119,13 +121,6 @@ ps1$ingtotha <- ps1$ingtot/ (4*ps1$hoursWorkUsual)  ##Creo una variable de ingto
 
 ### 3.2 Dejamos solo las variables de inter??s, y les ponemos labels*
 
-### Compa??eros: Despu??s de leer las variables, creo que hay dos que pueden ser candidatos para la regresi??n. Ingtot y y_total_m.
-### Sin embargo, ambas est??n en salarios mensuales que son un poco "mentirosos" porque no todos est??n trabajando tiempo completo
-### Por eso dejo tambi??n, las versiones en salario por hora y_total_m_ha y ingtotha. Para discutir. 
-### En el punto 2C, toca incluir variables de control individuales y de empleo, se me ocurren las siguientes:
-### Individuales: estrato (estrato1), informal-seguridad social (informal), educaci??n (maxEducLevel), 
-### De empleo: microempresa (microEmpresa), oficio(oficio), antiguedad (p6426), 
-
 ps1_trim = ps1 %>% 
   select(age, sex, ingtot, ingtotha, y_total_m, y_total_m_ha, estrato1, informal,maxEducLevel,microEmpresa, oficio, p6426, chunk)
 
@@ -152,13 +147,14 @@ ps1_trim = apply_labels(ps1_trim,
                         p6426="Antiguedad en meses en el oficio",
                         chunk="N??mero de Chunk del que proviene la observacion")
                   
-### 3.3 Guardar la base limpia en la carpeta stores
+### 3.3 Guardamos la base limpia en la carpeta stores
 
 setwd("/Users/SantyDLC/Dropbox (Personal)/Doctorado Uniandes/202220/Machine Learning/GitHub/BigData_Grupo_2022/PS1/stores")
 save(ps1_trim, file = "ps1_trim.Rda")
 
 
 ## 4. Hacemos las estad??sticas descriptivas
+
 st(ps1_trim, vars=c('age', 'age2', 'ingtot', 'ingtotha', 'y_total_m', 'y_total_m_ha', 'estrato1','p6426'), 
    labels=c('Edad', 'Edad^2', 'Ingreso Total Mensual (Pesos, Medida 1)',
             'Ingreso Total Hora (Pesos, Medida 1)', 
