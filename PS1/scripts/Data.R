@@ -149,8 +149,7 @@ ps1_trim = apply_labels(ps1_trim,
                   
 ### 3.3 Guardamos la base limpia en la carpeta stores
 
-setwd("/Users/SantyDLC/Dropbox (Personal)/Doctorado Uniandes/202220/Machine Learning/GitHub/BigData_Grupo_2022/PS1/stores")
-save(ps1_trim, file = "ps1_trim.Rda")
+setwd("Utilice su directorio de preferencia")
 
 
 ## 4. Hacemos las estad??sticas descriptivas
