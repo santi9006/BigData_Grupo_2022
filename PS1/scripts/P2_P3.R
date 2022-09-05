@@ -27,7 +27,7 @@ p_load(tidyverse,
        gtsummary,
        interactions) 
 
-setwd("/Users/SantyDLC/Dropbox (Personal)/Doctorado Uniandes/202220/Machine Learning/GitHub/BigData_Grupo_2022/PS1/stores")
+setwd("Se fija el directorio de preferencia")
 load("ps1_trim.Rda")
 
 #################### Punto 2#####################
@@ -88,12 +88,12 @@ summary(gender_gap_porcentaje)
 
 ## Paso 3 - Estimo la regresi??n del modelo 4 por FWL ##
 
-##Compa??eros, no s?? c??mo lidiar con las interacciones aqu??, entonces logr?? hacer hasta aqu??#
+
 m4<- lm(logincome~female+age+c(age*age)+female*age+female*c(age*age)+estrato1+informal+maxEducLevel+microEmpresa+p6426+estrato1*female+informal*female+maxEducLevel*female+microEmpresa*female+p6426*female, ps1_trim)
 summary(m4)
 
 db<-ps1_trim %>% mutate(res_y_all=lm(logincome~age+c(age*age)+estrato1+informal+maxEducLevel+microEmpresa+p6426+estrato1*female+informal*female+maxEducLevel*female+microEmpresa*female+p6426*female, ps1_trim)$residuals, #Residuales de ingreso contra todo menos female
-                  res_female_todo=lm(female~##No tengo idea qu?? poner aqu??#)$residuals, #Residuales de female contra todo menos female
+                  res_female_todo=lm(female~
                                        )
 
 m5<-lm(res_y_all~res_female_todo-1,db)
